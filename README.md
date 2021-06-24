@@ -1,2 +1,2 @@
 # demo-mybatisplus
-SpringBoot + Spring Security + MyBatis-Plus + mysql + swagger2
+SpringBoot + Spring Security + MyBatis-Plus + mysql + redis + swagger2 

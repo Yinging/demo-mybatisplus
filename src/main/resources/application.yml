@@ -27,3 +27,7 @@ mybatis-plus:
     cache-enabled: false
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
+swagger:
+  enabled: true
+  #请求前缀
+  pathMapping: /dev-api

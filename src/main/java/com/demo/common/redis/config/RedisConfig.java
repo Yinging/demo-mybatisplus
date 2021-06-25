@@ -19,7 +19,7 @@ public class RedisConfig {
 
     /**
      *  缓存管理器
-     */
+     *//*
     /*@Bean
     public CacheManager cacheManager(RedisTemplate<?,?> redisTemplate) {
         CacheManager cacheManager = new RedisCacheManager(redisTemplate);

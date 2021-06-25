@@ -54,25 +54,25 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build()
                 /* 设置安全模式，swagger可以设置访问token */
-                .securitySchemes(securitySchemes())
-                .securityContexts(securityContexts())
+                /*.securitySchemes(securitySchemes())
+                .securityContexts(securityContexts())*/
                 .pathMapping(pathMapping);
     }
 
     /**
      * 安全模式，这里指定token通过Authorization头请求头传递
      */
-    private List<ApiKey> securitySchemes()
+    /*private List<ApiKey> securitySchemes()
     {
         List<ApiKey> apiKeyList = new ArrayList<ApiKey>();
         apiKeyList.add(new ApiKey("Authorization", "Authorization", "header"));
         return apiKeyList;
-    }
+    }*/
 
     /**
      * 安全上下文
      */
-    private List<SecurityContext> securityContexts()
+    /*private List<SecurityContext> securityContexts()
     {
         List<SecurityContext> securityContexts = new ArrayList<>();
         securityContexts.add(
@@ -81,12 +81,12 @@ public class SwaggerConfig {
                         .forPaths(PathSelectors.regex("^(?!auth).*$"))
                         .build());
         return securityContexts;
-    }
+    }*/
 
     /**
      * 默认的安全上引用
      */
-    private List<SecurityReference> defaultAuth()
+    /*private List<SecurityReference> defaultAuth()
     {
         AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
@@ -94,13 +94,12 @@ public class SwaggerConfig {
         List<SecurityReference> securityReferences = new ArrayList<>();
         securityReferences.add(new SecurityReference("Authorization", authorizationScopes));
         return securityReferences;
-    }
+    }*/
 
     /**
      * 添加摘要信息
      */
-    private ApiInfo apiInfo()
-    {
+    private ApiInfo apiInfo() {
         // 用ApiInfoBuilder进行定制
         return new ApiInfoBuilder()
                 // 设置标题

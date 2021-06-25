@@ -80,7 +80,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
                 .failureHandler(failureLoginHandle)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**")
+                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**","/dev-api","/swagger-ui.html")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

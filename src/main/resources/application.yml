@@ -12,6 +12,8 @@ spring:
       min-idle: 5
       max-wait-millis: 60000
       max-idle: 20
+  main:
+    allow-bean-definition-overriding: true
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*.xml
   type-aliases-package: com.demo.entity

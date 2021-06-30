@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/role")
-@Api(tags ="角色信息表")
+@Api(tags ="角色信息")
 public class RoleController {
     @Autowired
     private RoleService roleService;

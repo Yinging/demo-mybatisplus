@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/dicttype")
-@Api(tags ="字典类型表")
+@Api(tags ="字典类型")
 public class DictTypeController {
     @Autowired
     private DictTypeService dictTypeService;

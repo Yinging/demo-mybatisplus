@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author ：msj
@@ -56,7 +57,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
                 return s.matches(MD5Util.encode((String) password));
             }
         });*/
-        /*auth.userDetailsService(customDetailsService()).passwordEncoder(new BCryptPasswordEncoder());*/
+        auth.userDetailsService(customDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
@@ -84,7 +85,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
                 .failureHandler(failureLoginHandle)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**","/dev-api")
+                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

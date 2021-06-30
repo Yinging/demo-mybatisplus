@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/menu")
-@Api(tags ="菜单权限表")
+@Api(tags ="菜单权限")
 public class MenuController {
     @Autowired
     private MenuService menuService;

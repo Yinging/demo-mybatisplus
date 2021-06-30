@@ -1,10 +1,16 @@
 package com.demo.controller;
 
+import com.demo.common.request.PageFrom;
+import com.demo.common.response.R;
 import com.demo.common.security.validate.ImageCode;
 import com.demo.common.utils.VerifyCodeUtils;
-import org.springframework.stereotype.Controller;
+import com.demo.entity.UserEntity;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +26,8 @@ import java.io.IOException;
  * @version: 1.0
  */
 
-@Controller
+@RestController
+@Api(tags = "登錄")
 public class LoginController {
 
     /**
@@ -29,7 +36,7 @@ public class LoginController {
      * @param response
      */
     @GetMapping("/imageCode")
-    @ResponseBody
+    @ApiOperation(value = "生成驗證碼")
     public void imageCode(HttpServletRequest request, HttpServletResponse response) {
         String code = null;
         BufferedImage image = null;
@@ -45,5 +52,10 @@ public class LoginController {
         }
     }
 
+    @PostMapping("/user/login")
+    @ApiOperation("登錄")
+    public R login(@RequestBody PageFrom page) {
+        return R.SUCCESS();
+    }
 
 }

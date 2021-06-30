@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/user")
-@Api(tags ="用户信息表")
+@Api(tags ="用户信息")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -60,6 +61,7 @@ public class UserController {
     @PostMapping("/save")
     @ApiOperation(value = "保存")
     public R save(@RequestBody UserEntity user){
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		userService.save(user);
 
         return R.SUCCESS();

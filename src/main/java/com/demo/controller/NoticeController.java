@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/notice")
-@Api(tags ="通知公告表")
+@Api(tags ="通知公告")
 public class NoticeController {
     @Autowired
     private NoticeService noticeService;

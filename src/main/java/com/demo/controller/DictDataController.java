@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/dictdata")
-@Api(tags ="字典数据表")
+@Api(tags ="字典数据")
 public class DictDataController {
     @Autowired
     private DictDataService dictDataService;

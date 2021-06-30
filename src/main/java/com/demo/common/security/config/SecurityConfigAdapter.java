@@ -65,7 +65,11 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/admin/image/**",
                 "/admin/lib/**",
                 "/admin/static/**",
-                "/admin/temp/**","/ueditor/1.4.3/**");
+                "/admin/temp/**","/ueditor/1.4.3/**")
+                .antMatchers("/doc.html")
+                .antMatchers("/webjars/**")
+                .antMatchers("/v2/**")
+                .antMatchers("/swagger-resources/**");
     }
 
     @Override
@@ -80,7 +84,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
                 .failureHandler(failureLoginHandle)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**","/dev-api","/swagger-ui.html")
+                .antMatchers("/login","/imageCode/**","/clearSession","/imageCode**","/dev-api")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
